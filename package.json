@@ -1,0 +1,35 @@
+{
+  "name": "linebot-with-freee-api-on-vercel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "vercel:init": "vercel init",
+    "vercel:dev": "vercel dev",
+    "vercel:prod": "vercel --prod",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Silver-birder/linebot-with-freee-api-on-vercel.git"
+  },
+  "keywords": [],
+  "author": "silverbirder <silverbirder@gmail.com> (https://silver-birder.github.io)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Silver-birder/linebot-with-freee-api-on-vercel/issues"
+  },
+  "homepage": "https://github.com/Silver-birder/linebot-with-freee-api-on-vercel#readme",
+  "devDependencies": {
+    "vercel": "^19.2.0"
+  },
+  "dependencies": {
+    "@line/bot-sdk": "^7.0.0",
+    "@vercel/node": "^1.7.4",
+    "next": "^9.5.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
