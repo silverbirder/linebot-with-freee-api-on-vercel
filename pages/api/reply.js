@@ -5,12 +5,15 @@ const client = new line.Client({
 });
 
 export default (req, res) => {
+    if (!req.body) {
+        res.json({'message': 'no post data'});
+        return
+    }
     req.body.events.map(async (event) => {
         await client.replyMessage(event.replyToken, {
             type: 'text',
             text: 'Hello World!'
         })
     });
-    res.statusCode = 200;
-    return res.statusCode;
+    res.json({'message': 'replied message'})
 }
