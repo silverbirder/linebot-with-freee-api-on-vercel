@@ -28,8 +28,10 @@
   "dependencies": {
     "@line/bot-sdk": "^7.0.0",
     "@vercel/node": "^1.7.4",
+    "freee-node": "^1.0.0",
     "next": "^9.5.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "request": "^2.88.2"
   }
 }
