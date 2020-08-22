@@ -12,7 +12,7 @@ export default async (refreshToken) => {
     const response = await fetch('https://accounts.secure.freee.co.jp/public_api/token', {
         method: 'POST',
         body: JSON.stringify(body),
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        headers: {'Content-Type': 'application/json'}
     });
     const responseJson = await response.json();
     return responseJson;
