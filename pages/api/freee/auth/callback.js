@@ -1,5 +1,7 @@
 const fetch = require('node-fetch');
 const {data} = require('./data');
+const {connect, disconnect} = require('../../../../db/mongo');
+const {saveToken} = require('../../../../db/operation');
 
 export default async (req, res) => {
     const body = {
@@ -15,5 +17,8 @@ export default async (req, res) => {
         headers: {'Content-Type': 'application/json'}
     });
     const responseJson = await response.json();
+    await connect();
+    await saveToken(req.query.state, responseJson.access_token, responseJson.refresh_token);
+    await disconnect();
     return res.json(responseJson);
 }

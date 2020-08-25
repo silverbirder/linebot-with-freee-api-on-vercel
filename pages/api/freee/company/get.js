@@ -1,12 +1,13 @@
 const fetch = require('node-fetch');
+const {connect, disconnect} = require('../../../../db/mongo');
+const {findToken} = require('../../../../db/operation');
 
-export default async (req, res) => {
-    const accessToken = "";
-    const companies = await getCompanies(accessToken);
-    res.json(companies);
-}
+exports.getCompanies = async (userId) => {
+    await connect();
+    const tokens = await findToken(userId);
+    await disconnect();
 
-const getCompanies = async (accessToken) => {
+    const accessToken = tokens[0].accessToken;
     const response = await fetch('https://api.freee.co.jp/api/1/companies', {
         headers: {'Authorization': `Bearer ${accessToken}`}
     });

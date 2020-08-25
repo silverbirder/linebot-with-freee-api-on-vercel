@@ -9,7 +9,14 @@ exports.findToken = async (userId) => {
 
 exports.saveToken = async (userId, accessToken, refreshToken) => {
     const Token = mongoose.model('Token', tokenSchema);
-    const token = new Token({userId: userId, accessToken: accessToken, refreshToken: refreshToken})
+    // TODO: upsert
+    // const token = new Token(
+    //     {userId: userId},
+    //     {$set: {userId: userId, accessToken: accessToken, refreshToken: refreshToken}},
+    //     {upsert: true}
+    // )
+    // await token.update();
+    const token = new Token({userId: userId, accessToken: accessToken, refreshToken: refreshToken});
     await token.save();
 }
 
