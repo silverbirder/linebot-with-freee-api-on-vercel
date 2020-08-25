@@ -12,5 +12,5 @@ exports.getCompanies = async (userId) => {
         headers: {'Authorization': `Bearer ${accessToken}`}
     });
     const responseJson = await response.json();
-    return responseJson;
+    return responseJson.companies;
 };

@@ -28,9 +28,12 @@ export default async (req, res) => {
             })
         } else if (messageText.match(/会社/)) {
             const companies = await getCompanies(event.source.userId);
+            const names = ",".concat(companies.map((c) => {
+                return c.display_name;
+            }));
             await client.replyMessage(replyToken, {
                 type: 'text',
-                text: 'OK'
+                text: names
             })
         }
     }
