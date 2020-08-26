@@ -8,19 +8,15 @@ exports.findToken = async (userId) => {
 };
 
 exports.saveToken = async (userId, accessToken, refreshToken) => {
-    // TODO: upsert
-    // const token = new Token(
-    //     {userId: userId},
-    //     {$set: {userId: userId, accessToken: accessToken, refreshToken: refreshToken}},
-    //     {upsert: true}
-    // )
-    // await token.update();
-    const token = new Token({userId: userId, accessToken: accessToken, refreshToken: refreshToken});
-    await token.save();
-}
+    await Token.updateOne(
+        {userId: userId},
+        {userId: userId, accessToken: accessToken, refreshToken: refreshToken},
+        {upsert: true}
+    )
+};
 
 exports.deleteToken = async (userId) => {
     await Token.remove({userId: `${userId}`}, function (err) {
         if (err) throw err;
     });
-}
+};

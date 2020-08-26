@@ -20,5 +20,5 @@ export default async (req, res) => {
     await connect();
     await saveToken(req.query.state, responseJson.access_token, responseJson.refresh_token);
     await disconnect();
-    return res.json(responseJson);
+    return res.send("Authentication completed. Please return to LINE.");
 }
